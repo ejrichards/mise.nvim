@@ -1,4 +1,4 @@
-*mise.nvim.txt*          For Neovim >= 0.9.0         Last change: 2024 June 19
+*mise.nvim.txt*        For Neovim >= 0.9.0        Last change: 2024 October 25
 
 ==============================================================================
 Table of Contents                                *mise.nvim-table-of-contents*
@@ -37,8 +37,9 @@ Defaults
 
 >lua
     {
-      -- Executable to run and the args to pass
+      -- Executable to run
       run = 'mise',
+      -- Args for the executable, set to "env --json --quiet" to ignore mise warnings
       args = 'env --json',
       -- Set to override the base PATH
       initial_path = vim.env.PATH,
