@@ -32,6 +32,13 @@ local function get_data()
 	local full_command = options.run .. " " .. options.args
 	local env_sh = vim.fn.system(full_command)
 
+	-- mise will print out warnings: "mise WARN" without the "--quiet" flag
+	if string.find(env_sh, "^mise") then
+		local first_line = string.match(env_sh, "^[^\n]*")
+		log.error(first_line)
+		return nil
+	end
+
 	local ok, data = pcall(vim.json.decode, env_sh)
 	if not ok or data == nil then
 		log.error('Invalid json returned by "' .. full_command .. '"')
@@ -92,7 +99,6 @@ function Mise.setup(opt)
 		set_previous(data)
 	end
 
-
 	local group = vim.api.nvim_create_augroup("mise.nvim", { clear = true })
 	vim.api.nvim_create_autocmd("DirChanged", {
 		group = group,
@@ -105,7 +111,7 @@ function Mise.setup(opt)
 	})
 
 	vim.api.nvim_create_user_command("Mise", function()
-		log.info(vim.inspect(get_data()));
+		log.info(vim.inspect(get_data()))
 	end, {
 		desc = "Mise",
 	})

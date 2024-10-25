@@ -17,8 +17,9 @@ lazy.nvim
 Defaults
 ```lua
 {
-  -- Executable to run and the args to pass
+  -- Executable to run
   run = 'mise',
+  -- Args for the executable, set to "env --json --quiet" to ignore mise warnings
   args = 'env --json',
   -- Set to override the base PATH
   initial_path = vim.env.PATH,
