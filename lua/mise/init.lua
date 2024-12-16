@@ -94,6 +94,7 @@ function Mise.setup(opt)
 	end
 
 	if options.load_on_setup then
+		vim.env.PATH = options.initial_path
 		load_env(data)
 	else
 		set_previous(data)
