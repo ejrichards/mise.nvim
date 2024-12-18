@@ -1,4 +1,4 @@
-*mise.nvim.txt*        For Neovim >= 0.9.0       Last change: 2024 December 16
+*mise.nvim.txt*                                            For Neovim >= 0.9.0
 
 ==============================================================================
 Table of Contents                                *mise.nvim-table-of-contents*
