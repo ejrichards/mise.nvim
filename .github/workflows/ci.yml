@@ -17,6 +17,7 @@ jobs:
         with:
           vimdoc: mise.nvim
           version: "Neovim >= 0.9.0"
+          description: "For Neovim >= 0.9.0"
           demojify: true
           treesitter: true
       - name: Push changes
