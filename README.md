@@ -29,6 +29,8 @@ Defaults
   load_on_setup = true,
   -- Force a run when using an unsupported executable
   force_run = false,
+  -- Scopes to update env vars on (e.g. { "global", "tabpage", "window" })
+  cd_scope = { "global" },
 }
 ```
 

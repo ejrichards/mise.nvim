@@ -10,6 +10,7 @@ local defaults = {
 	unset_vars = true,
 	load_on_setup = true,
 	force_run = false,
+	cd_scope = { "global" },
 }
 
 ---@type MiseConfig
@@ -105,7 +106,7 @@ function Mise.setup(opt)
 		group = group,
 		desc = "Run command to load env vars",
 		callback = function()
-			if vim.v.event.scope == "global" then
+			if vim.tbl_contains(options.cd_scope, vim.v.event.scope) then
 				dir_changed()
 			end
 		end,
